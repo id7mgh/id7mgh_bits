@@ -5,4 +5,4 @@ wmic process where ProcessId=%pid% CALL setpriority "realtime"
 PING -n 5 127.0.0.1 
 sc query BITS | find /I "STATE" | find "STOPPED"
 sc start BITS
-goto bitsendless1
+goto bitsendless
