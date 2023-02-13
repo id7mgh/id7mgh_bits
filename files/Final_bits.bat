@@ -1,4 +1,5 @@
 @echo off
+mode con lines=2 cols=10
 title Final_Bits.bat
 sc config "BITS" start= auto >nul
 sc start "BITS" >nul
