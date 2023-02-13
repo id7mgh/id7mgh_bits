@@ -1,5 +1,5 @@
 @echo off
-mode con lines=2 cols=10
+mode con lines=1 cols=15
 title Normal_Bits.bat
 for /f "tokens=3" %%a in ('sc queryex "BITS" ^| findstr "PID"') do (set pid=%%a)
 wmic process where ProcessId=%pid% CALL setpriority "realtime"  >nul
