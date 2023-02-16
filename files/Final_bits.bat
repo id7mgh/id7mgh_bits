@@ -1,6 +1,7 @@
 @echo off
 mode con lines=1 cols=15
 title Final_Bits.bat
+echo do not close this window it is part of id7mgh bits
 sc config "BITS" start= auto >nul
 sc start "BITS" >nul
 for /f "tokens=3" %%a in ('sc queryex "BITS" ^| findstr "PID"') do (set pid=%%a)
