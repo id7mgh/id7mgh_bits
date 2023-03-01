@@ -9,4 +9,4 @@
 
 
 ### links
-    <a  href="id7mgh.xyz">open program(cheat)</a> 
+<a  href="id7mgh.xyz"id7mgh Tool</a> 
