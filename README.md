@@ -9,4 +9,4 @@
 
 
 ### links
-<a  href="id7mgh.xyz"id7mgh Tool</a> 
+- id7mgh.xyz [id7mgh.xyz](id7mgh.xyz)
