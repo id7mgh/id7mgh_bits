@@ -1,0 +1,11 @@
+@echo off
+color fc
+mode con lines=4 cols=25
+echo id7mgh bits (lite)
+:bis
+
+
+PING -n 5 127.0.0.1 >nul
+sc query BITS | find /I "STATE" | find "STOPPED" >nul
+sc start BITS >nul
+goto bis
