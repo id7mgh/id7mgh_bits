@@ -9,4 +9,4 @@
 
 
 ### links
-[open issues](https://id7mgh.xyz) 
+[id7mgh Tool](https://id7mgh.xyz) 
