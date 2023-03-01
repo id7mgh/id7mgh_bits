@@ -9,4 +9,4 @@
 
 
 ### links
-<a href="https://www.youtube.com/c/id7mgh"/></a>
+[open issues](https://id7mgh.xyz) 
