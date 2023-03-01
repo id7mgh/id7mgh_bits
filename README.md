@@ -9,4 +9,4 @@
 
 
 ### links
-- id7mgh.xyz [id7mgh.xyz](id7mgh.xyz)
+<a href="https://www.youtube.com/c/id7mgh" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="id7mgh" height="30" width="40" /></a>
