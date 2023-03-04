@@ -1,11 +1,61 @@
 @echo off
+mode con lines=8 cols=25
 color fc
-mode con lines=4 cols=25
-echo id7mgh bits (lite)
-:bis
+net session >nul 2>&1
+    if %errorLevel% == 0 (
+goto menu
+    ) else (
+echo ------=id7mgh Bits=------
+echo.
+echo.           /!\
+echo  please run this program
+echo  as an administrator
+pause >nul
+exit
+	)
+
+:menu
+cls
+
+echo -------=lite Bits=-------
+echo.                        
+echo   1- Enable
+echo   2- Disable       
+echo.
+choice /C:12 /N 
+if '%errorlevel%' == '1' GOTO on
+if '%errorlevel%' == '2' GOTO off
 
 
-PING -n 5 127.0.0.1 >nul
-sc query BITS | find /I "STATE" | find "STOPPED" >nul
-sc start BITS >nul
-goto bis
+:on
+ipconfig /flushdns >nul
+
+(
+sc config "BITS" start= auto >nul
+sc start "BITS"
+for /f "tokens=3" %%a in ('sc queryex "BITS" ^| findstr "PID"') do (set pid=%%a)
+) >nul 2>&1
+wmic process where ProcessId=%pid% CALL setpriority "idle" >nul
+(
+sc config "Dnscache" start= demand >nul
+sc start "Dnscache" >nul
+for /f "tokens=3" %%a in ('sc queryex "Dnscache" ^| findstr "PID"') do (set pid=%%a)
+) >nul 2>&1
+wmic process where ProcessId=%pid% CALL setpriority "idle" >nul
+wmic process where name="mqsvc.exe" CALL setpriority "high priority" >nul
+wmic process where name="mqtgsvc.exe" CALL setpriority "high priority" >nul
+wmic process where name="javaw.exe" CALL setpriority "realtime">nul
+goto menu
+:off
+sc stop "Dnscache"
+sc stop "BITS" >nul
+wmic process where ProcessId=%pid% CALL setpriority "normal" >nul
+wmic process where name="mqsvc.exe" CALL setpriority "normal" >nul
+wmic process where name="mqtgsvc.exe" CALL setpriority "normal" >nul
+wmic process where name="javaw.exe" CALL setpriority "normal" >nul
+goto menu
+
+
+
+
+
