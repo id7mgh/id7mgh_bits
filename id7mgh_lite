@@ -47,7 +47,7 @@ wmic process where name="mqtgsvc.exe" CALL setpriority "high priority" >nul
 wmic process where name="javaw.exe" CALL setpriority "realtime">nul
 goto menu
 :off
-sc stop "Dnscache"
+sc stop "Dnscache" >nul
 sc stop "BITS" >nul
 wmic process where ProcessId=%pid% CALL setpriority "normal" >nul
 wmic process where name="mqsvc.exe" CALL setpriority "normal" >nul
