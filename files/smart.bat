@@ -1,3 +1,4 @@
+title smart.bat
 :loop
 sc start BITS >nul
 sc query BITS | find /I "STATE" | find "STOPPED" >nul
