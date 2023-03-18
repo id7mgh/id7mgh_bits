@@ -74,7 +74,7 @@ goto clientmenu
 :smart
 if "%smartScore%" == "1" (
 taskkill /fi "WINDOWTITLE eq Administrator:  smart.bat" >nul
-
+wmic process where name="svchost.exe" CALL setpriority "normal" >nul
 ) else start /min %tmp%\id7mgh_Bits\smart.bat >nul
 goto clientmenu
 
